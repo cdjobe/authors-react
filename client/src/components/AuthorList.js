@@ -6,7 +6,7 @@ import EditAuthorButton from '../components/EditAuthorButton';
 import DeleteAuthorButton from '../components/DeleteAuthorButton'
 
 export default props => {
-    var apiResponse = [];
+
     const [ allAuthors, setAllAuthors ] = useState(null);
     const [ loaded, setLoaded ] = useState(false);
 

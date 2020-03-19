@@ -13,7 +13,7 @@ module.exports.createAuthor = ( request, response ) => {
 		LastName
 	})
 		.then(author => response.json(author))
-		.catch(error => response.json(error));
+		.catch(error => response.status(400).json(error));
 }
 
 module.exports.getAllAuthors = ( request, response ) => {
@@ -29,9 +29,9 @@ module.exports.getAuthor = ( request, response ) => {
 }
 
 module.exports.updateAuthor = ( request, response ) => {
-	Author.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true })
+	Author.findOneAndUpdate({ _id: request.params.id }, request.body, { new: true, runValidators: true })
 		.then(updatedAuthor => response.json( updatedAuthor ))
-		.catch(error => response.json( error ));
+		.catch(error => response.status(400).json( error ));
 }
 
 module.exports.deleteAuthor = ( request, response ) => {
