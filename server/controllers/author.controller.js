@@ -23,7 +23,7 @@ module.exports.getAllAuthors = ( request, response ) => {
 }
 
 module.exports.getAuthor = ( request, response ) => {
-	Author.find({ _id:request.params.id })
+	Author.find({_id:request.params.id})
 		.then( author => response.json( author ))
 		.catch( error => response.json( error ));
 }

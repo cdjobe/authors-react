@@ -9,7 +9,7 @@ export default props => {
 
     const onSubmitHandler=(e)=>{
         e.preventDefault();
-        onSubmitProp({ FirstName, LastName })
+        onSubmitProp({FirstName, LastName})
     }
 
     return (
@@ -20,7 +20,7 @@ export default props => {
                     <input
                         type="text"
                         name="FirstName"
-                        defaultValue={FirstName}
+                        defaultValue={initialFirstName}
                         onChange={(e)=>{ setFirstName( e.target.value ) }} />
                 </div>
                 <div className="form-group">
@@ -28,7 +28,7 @@ export default props => {
                     <input
                         type="text"
                         name="LastName"
-                        defaultValue={LastName}
+                        defaultValue={initialLastName}
                         onChange={(e)=>{ setLastName( e.target.value ) }} />
                 </div>
                 <input type="submit" />

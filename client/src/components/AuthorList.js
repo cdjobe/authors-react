@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router'
 
+import EditAuthorButton from '../components/EditAuthorButton';
+import DeleteAuthorButton from '../components/DeleteAuthorButton'
+
 export default props => {
     var apiResponse = [];
     const [ allAuthors, setAllAuthors ] = useState(null);
@@ -12,8 +15,8 @@ export default props => {
             .then(response=>{
                 setAllAuthors(response.data);
                 setLoaded(true);
-            })
-    })
+        })
+    }, [])
     
     return (
         <div>
@@ -29,9 +32,10 @@ export default props => {
                         loaded &&
                         allAuthors.map((author, i)=>{
                             return <tr>
-                                <td><Link to={`author/${author._id}`}>{author.FirstName} {author.LastName}</Link></td>
-                                <td>
-
+                                <td>{author.FirstName} {author.LastName}</td>
+                                <td> {console.log(author)}
+                                    <EditAuthorButton authorId={author._id} />
+                                    <DeleteAuthorButton />
                                 </td>
                             </tr>
                         })
