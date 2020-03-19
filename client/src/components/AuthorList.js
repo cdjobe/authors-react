@@ -18,6 +18,10 @@ export default props => {
         })
     }, [])
     
+    const removeFromDom=authorId=>{
+        setAllAuthors(allAuthors.filter(author=>author._id !== authorId));
+    }
+
     return (
         <div>
             <table className="table">
@@ -33,9 +37,9 @@ export default props => {
                         allAuthors.map((author, i)=>{
                             return <tr>
                                 <td>{author.FirstName} {author.LastName}</td>
-                                <td> {console.log(author)}
+                                <td> 
                                     <EditAuthorButton authorId={author._id} />
-                                    <DeleteAuthorButton />
+                                    <DeleteAuthorButton authorId={author._id} removeFromDom={removeFromDom} />
                                 </td>
                             </tr>
                         })

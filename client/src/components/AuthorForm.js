@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { navigate } from '@reach/router'
 
 export default props => {
     const { initialFirstName, initialLastName, onSubmitProp } = props;
 
-    const [ FirstName, setFirstName ] = useState("");
-    const [ LastName, setLastName ] = useState("");
+    const [ FirstName, setFirstName ] = useState(initialFirstName);
+    const [ LastName, setLastName ] = useState(initialLastName);
 
     const onSubmitHandler=(e)=>{
         e.preventDefault();
-        onSubmitProp({FirstName, LastName})
+        onSubmitProp({FirstName, LastName});
+        navigate('/');
     }
 
     return (

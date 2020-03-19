@@ -16,17 +16,13 @@ export default () => {
             });
     }, [])
 
-    const removeFromDom=authorId=>{
-        setAllAuthors(allAuthors.filter(author=>author._id !== authorId));
-    }
-
     return (
         <div>
 
             <Link to="/new">Add an Author</Link>
             {
                 loaded &&
-                <AuthorList allAuthors={allAuthors} removeFromDom={removeFromDom}/>
+                <AuthorList allAuthors={allAuthors} />
             }
         </div>
     )

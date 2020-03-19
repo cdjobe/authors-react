@@ -10,7 +10,6 @@ export default props => {
     useEffect(()=>{
         axios.get('http://localhost:8000/api/getAuthor/' + id)
             .then(response=>{
-                console.log(response.data[0])
                 setAuthor(response.data[0]);
                 setLoaded(true);            
             })            
